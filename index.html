@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ikinciel.com - Üyelik Sistemi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header img {
+            height: 50px;
+        }
+        header .signup-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        header .signup-btn:hover {
+            background-color: #218838;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        form input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo-placeholder.png" alt="ikinciel.com Logo">
+        <a href="#signup" class="signup-btn">Üye Ol</a>
+    </header>
+    <div class="container">
+        <h2>Üye Ol</h2>
+        <form id="signup-form">
+            <div class="error" id="error-message"></div>
+            <label for="email">E-posta Adresi:</label>
+            <input type="email" id="email" placeholder="E-posta adresinizi girin" required>
+
+            <label for="password">Şifre:</label>
+            <input type="password" id="password" placeholder="Şifrenizi girin" required>
+
+            <label for="confirm-password">Şifre Tekrar:</label>
+            <input type="password" id="confirm-password" placeholder="Şifrenizi tekrar girin" required>
+
+            <button type="button" onclick="registerUser()">Kayıt Ol</button>
+        </form>
+    </div>
+
+    <script>
+        function registerUser() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Basit doğrulama
+            if (!email || !password || !confirmPassword) {
+                errorMessage.textContent = 'Tüm alanları doldurun.';
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Şifreler eşleşmiyor!';
+                return;
+            }
+
+            // LocalStorage'da kullanıcı kaydetme
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+
+            if (users.find(user => user.email === email)) {
+                errorMessage.textContent = 'Bu e-posta ile zaten bir hesap oluşturulmuş.';
+                return;
+            }
+
+            users.push({ email, password });
+            localStorage.setItem('users', JSON.stringify(users));
+
+            alert('Başarıyla kayıt oldunuz!');
+            document.getElementById('signup-form').reset();
+        }
+    </script>
+</body>
+</html>
