@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ikinciel.com</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header img {
+            height: 50px;
+        }
+        header .signup-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        header .signup-btn:hover {
+            background-color: #218838;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            padding: 20px;
+        }
+        .vitrine-section {
+            flex: 3;
+            margin-right: 20px;
+        }
+        .vitrine-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .vitrine-item {
+            display: inline-block;
+            width: 23%;
+            margin: 1%;
+            text-align: center;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+        .vitrine-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .sidebar {
+            flex: 1;
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h3 {
+            margin-bottom: 10px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar ul li a:hover {
+            color: #28a745;
+        }
+        .sidebar ul li a span {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="ikinciel.com Logo">
+        <a href="#signup" class="signup-btn">Üye Ol</a>
+    </header>
+    <div class="container">
+        <div class="vitrine-section">
+            <h2>Vitrin</h2>
+            <div id="vitrine-items">Henüz vitrinde ürün yok.</div>
+        </div>
+        <aside class="sidebar">
+            <h3>Kategoriler</h3>
+            <ul>
+                <li><a href="#"><span>🏠</span>Emlak</a></li>
+                <li><a href="#"><span>🚗</span>Vasıta</a></li>
+                <li><a href="#"><span>📱</span>Elektronik</a></li>
+                <li><a href="#"><span>🛋️</span>Mobilya</a></li>
+                <li><a href="#"><span>👗</span>Giyim</a></li>
+                <li><a href="#"><span>🎨</span>Hobi</a></li>
+                <li><a href="#"><span>📚</span>Kitap</a></li>
+                <li><a href="#"><span>📦</span>Diğer</a></li>
+            </ul>
+        </aside>
+    </div>
+</body>
+</html>
